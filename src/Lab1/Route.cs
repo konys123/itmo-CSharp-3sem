@@ -35,7 +35,6 @@ public class Route
             return false;
         }
 
-        _train.Status();
         return true;
     }
 }

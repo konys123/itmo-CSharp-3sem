@@ -50,10 +50,8 @@ public class Train
         return 10 * accuracy;
     }
 
-    public void Status()
+    public string Status()
     {
-        Console.WriteLine($"время в пути: {TravelTime} с");
-        Console.WriteLine($"пройденное расстояние: {DistanceTraveled} м");
-        Console.WriteLine($"скорость: {Speed} м/с");
+        return $"время в пути: {TravelTime} с \nпройденное расстояние: {DistanceTraveled} м \nскорость: {Speed} м/с";
     }
 }

@@ -1,10 +1,18 @@
 using Itmo.ObjectOrientedProgramming.Lab1;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Lab1.Tests;
 
 public class Test
 {
+    private readonly ITestOutputHelper _testOutputHelper;
+
+    public Test(ITestOutputHelper testOutputHelper)
+    {
+        _testOutputHelper = testOutputHelper;
+    }
+
     [Fact]
     public void Scenario1()
     {
@@ -14,6 +22,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2];
         var route = new Route(sections, 1, train, 500);
         Assert.True(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -25,6 +34,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2];
         var route = new Route(sections, 1, train, 50);
         Assert.False(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -38,6 +48,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2, s3, s4];
         var route = new Route(sections, 1, train, 500);
         Assert.True(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -50,6 +61,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2, s3];
         var route = new Route(sections, 1, train, 50000);
         Assert.False(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -63,6 +75,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2, s3, s4];
         var route = new Route(sections, 1, train, 500);
         Assert.False(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -80,6 +93,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2, s3, s4, s5, s6, s7, s8];
         var route = new Route(sections, 1, train, 30);
         Assert.True(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -90,6 +104,7 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1];
         var route = new Route(sections, 1, train, 50);
         Assert.False(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 
     [Fact]
@@ -101,5 +116,6 @@ public class Test
         System.Collections.ObjectModel.Collection<IRouteSection> sections = [s1, s2];
         var route = new Route(sections, 1, train, 50);
         Assert.False(route.TryToComplete());
+        _testOutputHelper.WriteLine(train.Status());
     }
 }
