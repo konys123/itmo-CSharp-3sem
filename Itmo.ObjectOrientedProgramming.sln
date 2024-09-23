@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{3DB12F
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLab1", "src\ConsoleLab1\ConsoleLab1.csproj", "{258A19D7-722B-4F8B-9986-CCC0DBACDA9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,7 @@ Global
 		{3A3ABC1F-44EE-41D7-B0F1-F0D962E5746B} = {ABD7D257-AE9C-4DCB-9224-80938748474C}
 		{2BC795FD-9FAC-419E-A8A5-4C432451CBD1} = {ABD7D257-AE9C-4DCB-9224-80938748474C}
 		{6B113055-EABD-4475-9A6B-C54320ED1F26} = {ABD7D257-AE9C-4DCB-9224-80938748474C}
+		{258A19D7-722B-4F8B-9986-CCC0DBACDA9C} = {3A8B6812-B42A-4F1B-962F-E4C2696A6F46}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{25EFCB64-8B06-4F6A-BBFD-9F713438637F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -90,5 +93,9 @@ Global
 		{6B113055-EABD-4475-9A6B-C54320ED1F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B113055-EABD-4475-9A6B-C54320ED1F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B113055-EABD-4475-9A6B-C54320ED1F26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258A19D7-722B-4F8B-9986-CCC0DBACDA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258A19D7-722B-4F8B-9986-CCC0DBACDA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258A19D7-722B-4F8B-9986-CCC0DBACDA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258A19D7-722B-4F8B-9986-CCC0DBACDA9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
