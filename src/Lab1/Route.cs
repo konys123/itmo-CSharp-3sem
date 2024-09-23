@@ -2,21 +2,21 @@ namespace Itmo.ObjectOrientedProgramming.Lab1;
 
 public class Route
 {
-    public Route(System.Collections.ObjectModel.Collection<IRouteSection> rout, float accuracy, Train train, float speedLimit)
+    public Route(IEnumerable<IRouteSection> rout, float accuracy, Train train, float speedLimit)
     {
-        _rout = rout;
+        _rout = rout.ToList();
         Accuracy = accuracy;
         _train = train;
         SpeedLimit = speedLimit;
     }
 
-    private float SpeedLimit { get; set; }
+    private float SpeedLimit { get; }
 
-    private readonly System.Collections.ObjectModel.Collection<IRouteSection> _rout;
+    private readonly List<IRouteSection> _rout;
 
     private readonly Train _train;
 
-    private float Accuracy { get; set; }
+    private float Accuracy { get; }
 
     public bool TryToComplete()
     {
@@ -29,9 +29,8 @@ public class Route
             }
         }
 
-        if (_train.GetSpeed() > SpeedLimit)
+        if (_train.Speed > SpeedLimit)
         {
-            _train.Status();
             return false;
         }
 

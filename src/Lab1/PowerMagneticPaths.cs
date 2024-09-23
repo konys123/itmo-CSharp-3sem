@@ -10,11 +10,11 @@ public class PowerMagneticPaths : IRouteSection
 
     private float Distance { get; set; }
 
-    private float Force { get; set; }
+    private float Force { get; }
 
     public bool TryToPass(Train train, float accuracy)
     {
-        if (!train.ApplicationOfforce(Force))
+        if (!train.ApplicationOfForce(Force))
         {
             return false;
         }

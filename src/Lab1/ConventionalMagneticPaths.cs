@@ -11,7 +11,7 @@ public class ConventionalMagneticPaths : IRouteSection
 
     public bool TryToPass(Train train, float accuracy)
     {
-        train.ApplicationOfforce(0);
+        train.ApplicationOfForce(0);
         while (Distance > 0)
         {
             float dist = train.DistanceCalculation(accuracy);

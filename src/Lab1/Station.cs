@@ -10,11 +10,11 @@ public class Station : IRouteSection
 
     private float NumberOfPeople { get; set; }
 
-    private float SpeedLimit { get; set; }
+    private float SpeedLimit { get; }
 
     public bool TryToPass(Train train, float accuracy)
     {
-        if (train.GetSpeed() <= SpeedLimit)
+        if (train.Speed <= SpeedLimit)
         {
             while (NumberOfPeople > 0)
             {

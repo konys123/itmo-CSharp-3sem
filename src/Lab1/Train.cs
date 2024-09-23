@@ -12,28 +12,22 @@ public class Train
 
     private float DistanceTraveled { get; set; }
 
-    private float Mass { get; set; }
-
-    private float Speed { get; set; }
+    private float Mass { get; }
 
     private float Acceleration { get; set; }
 
-    private float MaximumForce { get; set; }
+    private float MaximumForce { get; }
 
-    public bool ApplicationOfforce(float force)
+    public bool ApplicationOfForce(float force)
     {
-        if (force <= MaximumForce)
-        {
-            Acceleration = force / Mass;
-            return true;
-        }
-
-        return false;
+        if (!(force <= MaximumForce)) return false;
+        Acceleration = force / Mass;
+        return true;
     }
 
-    public float GetSpeed() => Speed;
-
     public void TimeCalculation(float accuracy) => TravelTime += accuracy;
+
+    public float Speed { get; private set; }
 
     public void SpeedCalculation(float accuracy) => Speed += Acceleration * accuracy;
 
