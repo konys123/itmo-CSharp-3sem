@@ -4,9 +4,11 @@ namespace Itmo.ObjectOrientedProgramming.Lab2.Builders;
 
 public class Director
 {
-    public Builder Builder { get; set; }
+    public IBuilder Builder { get; }
 
-    public User Auth { get; set; }
+    public Repository Repository { get;  }
+
+    public User Auth { get;  }
 
     public Director(Builder builder, User auth, Repository repository)
     {
@@ -23,6 +25,4 @@ public class Director
         EducationalProgram d = Builder.BuildEducationalProgram(c, Auth, Repository);
         return d;
     }
-
-    public Repository Repository { get; set; }
 }

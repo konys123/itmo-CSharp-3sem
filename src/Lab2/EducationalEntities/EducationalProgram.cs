@@ -16,11 +16,11 @@ public class EducationalProgram
         Semesters = [firstSemester, secondSemester];
     }
 
-    public Guid Id { get; init; }
+    public Guid Id { get; private set; }
 
     public string Name { get; private set; }
 
-    public User Author { get; init; }
+    public User Author { get; private set; }
 
     public IEnumerable<Subject> Subjects { get; private set; }
 
