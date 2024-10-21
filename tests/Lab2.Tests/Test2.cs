@@ -1,7 +1,6 @@
 using Itmo.ObjectOrientedProgramming.Lab2;
 using Itmo.ObjectOrientedProgramming.Lab2.Builders;
 using Itmo.ObjectOrientedProgramming.Lab2.EducationalEntities;
-using Itmo.ObjectOrientedProgramming.Lab2.Prototypes;
 using Xunit;
 
 namespace Lab2.Tests;
@@ -77,8 +76,7 @@ public class Test2
             .SetEvaluationCriteria(" ")
             .SetName("lab-2")
             .Build();
-        var prot = new LabPrototype();
-        Labs b = prot.Clone(a);
+        Labs b = a.Clone();
         Assert.True(b.LaboratoryBased == a.Id);
     }
 
@@ -92,8 +90,7 @@ public class Test2
             .SetName("lec-2")
             .SetContent(" ")
             .Build();
-        var prot = new LecturePrototype();
-        LectureMaterials b = prot.Clone(a);
+        LectureMaterials b = a.Clone();
         Assert.True(b.LectureMaterialBased == a.Id);
     }
 
@@ -122,8 +119,7 @@ public class Test2
             .SetLectures([b])
             .SetPoints(66)
             .Build();
-        var prot = new SubjPrototype();
-        Subject c2 = prot.Clone(c);
+        Subject c2 = c.Clone();
         Assert.True(c2.Based == c.Id);
     }
 

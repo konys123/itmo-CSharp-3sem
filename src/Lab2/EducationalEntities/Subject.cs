@@ -1,8 +1,16 @@
+using Itmo.ObjectOrientedProgramming.Lab2.Prototypes;
+
 namespace Itmo.ObjectOrientedProgramming.Lab2.EducationalEntities;
 
-public class Subject
+public class Subject : IPrototype<Subject>
 {
-    public Subject(User author, string name, IEnumerable<Labs> labs, IEnumerable<LectureMaterials> lectures, string format, int points)
+    public Subject(
+        User author,
+        string name,
+        IEnumerable<Labs> labs,
+        IEnumerable<LectureMaterials> lectures,
+        string format,
+        int points)
     {
         Author = author;
         Name = name;
@@ -25,7 +33,14 @@ public class Subject
         }
     }
 
-    public Subject(User author, string name, IEnumerable<Labs> labs, IEnumerable<LectureMaterials> lectures, string format, int points, Guid id)
+    public Subject(
+        User author,
+        string name,
+        IEnumerable<Labs> labs,
+        IEnumerable<LectureMaterials> lectures,
+        string format,
+        int points,
+        Guid id)
     {
         Author = author;
         Name = name;
@@ -88,6 +103,45 @@ public class Subject
         }
 
         throw new Exception();
+    }
+
+    public Subject Clone()
+    {
+        var lab = new List<Labs>();
+        var lec = new List<LectureMaterials>();
+
+        foreach (Labs i in Labs)
+        {
+            Labs tmp = i.Clone();
+            lab.Add(tmp);
+        }
+
+        foreach (LectureMaterials i in Lectures)
+        {
+            LectureMaterials tmp = i.Clone();
+            lec.Add(tmp);
+        }
+
+        if (Format == "экзамен")
+        {
+            return new Subject(
+                Author,
+                Name,
+                lab,
+                lec,
+                Format,
+                ExamPoints,
+                Id);
+        }
+
+        return new Subject(
+            Author,
+            Name,
+            lab,
+            lec,
+            Format,
+            MinPoints,
+            Id);
     }
 
     private bool IsHundredPoints()

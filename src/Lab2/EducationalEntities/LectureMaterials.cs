@@ -1,6 +1,8 @@
+using Itmo.ObjectOrientedProgramming.Lab2.Prototypes;
+
 namespace Itmo.ObjectOrientedProgramming.Lab2.EducationalEntities;
 
-public class LectureMaterials
+public class LectureMaterials : IPrototype<LectureMaterials>
 {
     public LectureMaterials(User author, string name, string description, string content)
     {
@@ -64,5 +66,10 @@ public class LectureMaterials
         }
 
         throw new Exception();
+    }
+
+    public LectureMaterials Clone()
+    {
+        return new LectureMaterials(Author, Name, Description, Content, Id);
     }
 }

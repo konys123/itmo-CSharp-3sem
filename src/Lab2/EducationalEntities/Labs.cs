@@ -1,8 +1,9 @@
+using Itmo.ObjectOrientedProgramming.Lab2.Prototypes;
 using Exception = System.Exception;
 
 namespace Itmo.ObjectOrientedProgramming.Lab2.EducationalEntities;
 
-public class Labs
+public class Labs : IPrototype<Labs>
 {
     public Labs(User author, string name, string description, string evaluationCriteria, int maximumScore)
     {
@@ -81,5 +82,10 @@ public class Labs
         }
 
         throw new Exception();
+    }
+
+    public Labs Clone()
+    {
+        return new Labs(Author, Name, Description, EvaluationCriteria, MaximumScore, Id);
     }
 }
