@@ -2,7 +2,7 @@ namespace Itmo.ObjectOrientedProgramming.Lab3.Displays;
 
 public interface IDisplayDriver
 {
-    void SetColor(string color);
+    public void SetColor(string color);
 
-    void WriteText(string text);
+    public void WriteText(string text);
 }

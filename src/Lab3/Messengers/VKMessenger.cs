@@ -2,7 +2,7 @@ namespace Itmo.ObjectOrientedProgramming.Lab3.Messengers;
 
 public class VkMessenger : IMessenger
 {
-    public string Name { get; set; } = "VK";
+    public string Name { get; } = "VK";
 
     public void WriteMessage(string text)
     {
