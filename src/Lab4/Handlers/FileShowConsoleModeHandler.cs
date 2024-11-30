@@ -10,7 +10,7 @@ public class FileShowConsoleModeHandler : IHandler
     {
         string[] parts = command.Split(' ');
 
-        if (parts.Length == 5 && parts[3] == "-m" && parts[4] == "console")
+        if (parts.Length == 5 && parts[3] == "-m" && parts[0] == "file" && parts[1] == "show" && parts[4] == "console")
             return new FileShowCommand(fileSystem, parts[2]);
 
         if (NextHandler != null) return NextHandler.Handle(command, fileSystem);
