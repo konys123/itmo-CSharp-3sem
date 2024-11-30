@@ -14,7 +14,7 @@ public class Parser
     {
         _fileSystem = fileSystem;
 
-        IHandler root = new ConnectLocalModeHandler();
+        IHandler root = new ConnectHandler();
         _rootHandler = root;
 
         _rootHandler.SetNext(new DisconnectHandler())
@@ -22,9 +22,9 @@ public class Parser
             .SetNext(new FileDeleteHandler())
             .SetNext(new FileMoveHandler())
             .SetNext(new FileRenameHandler())
-            .SetNext(new FileShowConsoleModeHandler())
+            .SetNext(new FileShowHandler())
             .SetNext(new TreeGoToHandler())
-            .SetNext(new TreeListDepthHandler());
+            .SetNext(new TreeListHandler());
     }
 
     public ICommand Parse(string input)

@@ -10,7 +10,7 @@ public class TreeListDepthHandler : IHandler
     {
         string[] parts = command.Split(' ');
 
-        if (parts.Length == 4 && parts[2] == "-d" && parts[0] == "tree" && parts[1] == "list")
+        if (parts.Length == 4)
             return new TreeListCommand(fileSystem, int.Parse(parts[3]));
 
         if (NextHandler != null) return NextHandler.Handle(command, fileSystem);

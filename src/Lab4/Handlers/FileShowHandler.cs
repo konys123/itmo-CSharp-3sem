@@ -1,17 +1,21 @@
 using Itmo.ObjectOrientedProgramming.Lab4.Commands;
 using Itmo.ObjectOrientedProgramming.Lab4.FileSystem;
-using ICommand = Itmo.ObjectOrientedProgramming.Lab4.Commands.ICommand;
 
 namespace Itmo.ObjectOrientedProgramming.Lab4.Handlers;
 
-public class FileShowConsoleModeHandler : IHandler
+public class FileShowHandler : IHandler
 {
+    public FileShowHandler()
+    {
+        ModeHandler = new FileShowConsoleModeHandler();
+    }
+
     public ICommand Handle(string command, IFileSystem fileSystem)
     {
         string[] parts = command.Split(' ');
 
-        if (parts.Length == 5 && parts[4] == "console")
-            return new FileShowCommand(fileSystem, parts[2]);
+        if (parts.Length >= 4 && parts[3] == "-m" && parts[0] == "file" && parts[1] == "show" && ModeHandler != null)
+            return ModeHandler.Handle(command, fileSystem);
 
         if (NextHandler != null) return NextHandler.Handle(command, fileSystem);
 
@@ -23,6 +27,8 @@ public class FileShowConsoleModeHandler : IHandler
         NextHandler = nextHandler;
         return nextHandler;
     }
+
+    public IHandler? ModeHandler { get; set; }
 
     public IHandler? NextHandler { get; set; }
 }
